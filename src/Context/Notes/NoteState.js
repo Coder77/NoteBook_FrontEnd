@@ -17,9 +17,9 @@ const NoteState = (props) => {
         "auth-token": localStorage.getItem('token')
       }
     });
-    const json  = await response.json();
+    const json = await response.json();
     setNotes(json);
-  } 
+  }
 
   //Add a Note 
   const addNote = async (title, description, tag) => {
@@ -30,9 +30,9 @@ const NoteState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token')
       },
-      body: JSON.stringify({title, description, tag}),
+      body: JSON.stringify({ title, description, tag }),
     });
-    const json  = await response.json();
+    const json = await response.json();
     setNotes(notes.concat(json));
   }
 
@@ -47,7 +47,6 @@ const NoteState = (props) => {
       },
     });
     const json = await response.json();
-    console.log(json);
     let newNotes = notes.filter((note) => { return note._id !== id });
     setNotes(newNotes);
   }
@@ -61,10 +60,9 @@ const NoteState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token')
       },
-      body: JSON.stringify({title, description, tag}),
+      body: JSON.stringify({ title, description, tag }),
     });
-    const json  = await response.json();
-    console.log(json);
+    const json = await response.json();
 
     let newnotes = JSON.parse(JSON.stringify(notes));        // Cannot Update State Variable directly in React
     for (let index = 0; index < newnotes.length; index++) {
@@ -74,8 +72,8 @@ const NoteState = (props) => {
         newnotes[index].tag = tag;
         break;
       }
-      setNotes(newnotes);
     }
+    setNotes(newnotes);
   }
 
 

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom' 
+const URI = 'http://localhost:5000'
+
 function Login(props) {
 
     const[credentials,setcredentials]=useState({email: "", password: ""});
@@ -12,7 +14,7 @@ function Login(props) {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/auth/login`, {
+        const response = await fetch(`${URI}/api/auth/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -36,18 +38,19 @@ function Login(props) {
     return (
         <>
             <div className="container justify-content-center">
-                <div className="container col-md-6 my-5">
+                <div className="container"><h3 className='text-center'>LogIn with Your Credentials</h3></div>
+                <div className="container col-md-6 my-5" style={{border: "1px solid #ccc", boxShadow: "0 0 5px rgba(0, 0, 0, 0.3)"}}>
                     <form onSubmit={handleClick}>
-                        <div className="mb-3">
-                            <label htmlFor="email" className="form-label">Email address</label>
+                        <div className="my-3">
+                            <label htmlFor="email" className="form-label"><b>Email address</b></label>
                             <input type="email" className="form-control" onChange={onChange} value={credentials.email} name="email" id="email" aria-describedby="emailHelp" />
                             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="password" className="form-label">Password</label>
+                            <label htmlFor="password" className="form-label"><b>Password</b></label>
                             <input type="password" className="form-control" onChange={onChange} value={credentials.password} name="password" id="password" />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary mb-3">Submit</button>
                     </form>
                 </div>
             </div>

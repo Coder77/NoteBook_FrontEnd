@@ -10,6 +10,9 @@ function NoteItem(props) {
             <div className="card my-3">
                 <div className="card-body">
                     {/* <div className="d-flex align-items-center"></div> */}
+                    <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style ={{ left: '85%', zIndex:'1'}}>
+                        {note.tag}
+                    </span>
                     <h5 className="card-title">{note.title}</h5>
                     <p className="card-text">{note.description} </p>
                     <i className="fa-solid fa-trash mx-2" onClick={() => {deleteNote(note._id)}}></i>

@@ -15,22 +15,22 @@ function AddNote() {
     }
     return (
         <>
-            <div className="container my-2">
-                <h2>Add Your Notes</h2>
-                <form>
+            <h2 className='my-3'>Add Your Notes</h2>
+            <div className="container my-2" style={{ border: "1px solid #ccc", boxShadow: "0 0 5px rgba(0, 0, 0, 0.3)" }}>
+                <form onSubmit={handleclick}>
                     <div className="my-3">
                         <label htmlFor="title" className="form-label">Title</label>
-                        <input type="type" minLength={3} required className="form-control" value={note.title} id="title" name="title" onChange={onChange} aria-describedby="emailHelp" />
+                        <input type="type" minLength={1} required className="form-control" value={note.title} id="title" name="title" onChange={onChange} aria-describedby="emailHelp" />
                     </div>
                     <div className="my-3">
                         <label htmlFor="description" className="form-label">Description</label>
-                        <input type="text" minLength={5} className="form-control"value={note.description}  onChange={onChange} id="description" name="description" />
+                        <input type="text" minLength={1} required className="form-control"value={note.description}  onChange={onChange} id="description" name="description" />
                     </div>
                     <div className="my-3">
                         <label htmlFor="tag" className="form-label">Tag</label>
                         <input type="text" className="form-control" value={note.tag} onChange={onChange} id="tag" name="tag" />
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={handleclick}>Add Note</button>
+                    <button type="submit" className="btn btn-primary my-3">Add Note</button>
                 </form>
             </div>
 
