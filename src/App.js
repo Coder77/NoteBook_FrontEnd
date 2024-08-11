@@ -2,11 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import TitleBar from './Components/TitleBar';
 import Dashboard from './Components/Dashboard';
 import AboutApp from './Components/AboutApp';
-import Alert from "./Components/Alert";
-import NoteState from "./Context/Notes/NoteState";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import React, {useState} from 'react'
+import Alert from "./Components/Alert";
+import NoteState from "./Context/Notes/NoteState";
+
 
 
 function App() {
